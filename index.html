@@ -12,10 +12,11 @@
 
   <h1>Rock Paper Scissors!</h1>
   <div>
-    <input type="text" name="minutes"><span>Minutes</span>
-    <input type="text" name="seconds"><span>Seconds</span>
-    <div>Timer: 
-      <span class="minutesRemaining"></span>:<span class="secondsRemaining"></span>
+    <!-- <input type="text" class="minutesInput"><span>Minutes</span> -->
+    <input type="text" class="secondsInput"><span>Seconds</span>
+    <div>Timer
+      <!-- <span class="minutesRemaining"></span>: -->
+      <span class="secondsRemaining"></span> Seconds Remaining
     </div>
   </div>
   <div>
@@ -30,77 +31,102 @@
     <div><span class='drawScore'></span> Draw</div>
   </div>
   <div>
-    <button>Start</button>
-    <button>Restart</button>
+    <button class='startButton'>Start</button>
+    <button class='restartButton'>Restart</button>
   </div>
   <script type="text/javascript">
     $( document ).ready(function() {
       // Defaults
-      $('.winScore').text(0);
-      $('.lossScore').text(0);
-      $('.drawScore').text(0);
-      $('.minutesRemaining').text(0);
-      $('.secondsRemaining').text('00');
-      
-      // Input Time
-      
-      // Timer Countdown Logic
-
-
-      // Computer generate random result logic
-      var computerMove = function(decision) {
-        var decisionMap = ['rock', 'paper', 'scissors'];
-        var computerDecision = decisionMap[Math.floor(Math.random() * decisionMap.length)];
-        // Display computer decision
-        $('.computerChoice').text(computerDecision);
-        
-        var scoreIncrement = function(scoreType) {
-          var scoreSelector = '.' + scoreType + 'Score';
-          $(scoreSelector).text(parseInt($(scoreSelector).text()) + 1);
-        }
-
-
-        if (decision === computerDecision) {
-          $('.drawScore').text(parseInt($('.drawScore').text()) + 1);
-        } else if (decision === 'rock') {
-          if (computerDecision === 'scissors') {
-            scoreIncrement('win');
-          } else if (computerDecision === 'paper') {
-            scoreIncrement('loss');
-          }
-        } else if (decision === 'paper') {
-          if (computerDecision === 'rock') {
-            scoreIncrement('win');
-          } else if (computerDecision === 'scissors') {
-           scoreIncrement('loss'); 
-          }
-        } else if (decision === 'scissors') {
-          if (computerDecision === 'paper') {
-            scoreIncrement('win');
-          } else if (computerDecision === 'rock') {
-            scoreIncrement('loss');
-          }          
-        }
+      var setDefaults = function() {
+        $('.winScore').text(0);
+        $('.lossScore').text(0);
+        $('.drawScore').text(0);
+        // $('.minutesRemaining').text(0);
+        $('.secondsRemaining').text(0);
       }
-      // Rock / Paper / Scissor Decision Logic
-      $('.rock').click(function() {
-        var decision = 'rock';
-        computerMove(decision);
-      });
-      $('.paper').click(function() {
-        var decision = 'paper';
-        computerMove(decision);
-        
-      });      
-      $('.scissors').click(function() {
-        var decision = 'scissors';
-        computerMove(decision);
-      });
+      setDefaults();
       
 
-      // Scoreboard logic
+      // Start Logic
+      $('.startButton').click(function() {
+        var secondsRemaining = $('.secondsInput').val();
+        $('.secondsRemaining').text(secondsRemaining);
+        $('.secondsInput').val('');
+        
+        // Timer Countdown Logic
+        var countdDown = setInterval(function(){
+          if (secondsRemaining > 0) {
+            secondsRemaining--;
+            $('.secondsRemaining').text(secondsRemaining);
+          } else {
+            // Declare Result
+            if (parseInt($('.winScore').text()) >= parseInt($('.drawScore').text()) && 
+                parseInt($('.winScore').text()) >= parseInt($('.lossScore').text())) {
+              alert('You win!');
+            } else if (parseInt($('.drawScore').text()) >= parseInt($('.lossScore').text())) {
+              alert('Its a draw!!');
+            } else {
+              alert('You Lose :(');
+            }
+            
+            clearInterval(countdDown);  
+          }
+        }, 1000);
+
+        // Computer generate random result logic
+        var computerMove = function(decision) {
+          var decisionMap = ['rock', 'paper', 'scissors'];
+          var computerDecision = decisionMap[Math.floor(Math.random() * decisionMap.length)];
+          // Display computer decision
+          $('.computerChoice').text(computerDecision);
+          
+          var scoreIncrement = function(scoreType) {
+            var scoreSelector = '.' + scoreType + 'Score';
+            $(scoreSelector).text(parseInt($(scoreSelector).text()) + 1);
+          }
+
+          // Scoreboard logic
+          if (decision === computerDecision) {
+            $('.drawScore').text(parseInt($('.drawScore').text()) + 1);
+          } else if (decision === 'rock') {
+            if (computerDecision === 'scissors') {
+              scoreIncrement('win');
+            } else if (computerDecision === 'paper') {
+              scoreIncrement('loss');
+            }
+          } else if (decision === 'paper') {
+            if (computerDecision === 'rock') {
+              scoreIncrement('win');
+            } else if (computerDecision === 'scissors') {
+             scoreIncrement('loss'); 
+            }
+          } else if (decision === 'scissors') {
+            if (computerDecision === 'paper') {
+              scoreIncrement('win');
+            } else if (computerDecision === 'rock') {
+              scoreIncrement('loss');
+            }          
+          }
+        }
+        // Rock / Paper / Scissor Decision Logic
+        $('.rock').click(function() {
+          computerMove('rock');
+        });
+        $('.paper').click(function() {
+          computerMove('paper');
+          
+        });      
+        $('.scissors').click(function() {
+          computerMove('scissors');
+        });
+        
+        
+      });
     
       // Restart Logic
+      $('.restartButton').click(function() {
+        setDefaults();
+      });
     });
   </script>
 </body>
