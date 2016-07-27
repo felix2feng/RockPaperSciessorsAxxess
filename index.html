@@ -5,16 +5,63 @@
   <title>Rock Paper Scissors</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script data-main="scripts/main" src="scripts/require.js"></script>
 </head>
 
 <body id="home">
 
   <h1>Rock Paper Scissors!</h1>
+  <div>
+    <input type="text" name="minutes"><span>Minutes</span>
+    <input type="text" name="seconds"><span>Seconds</span>
+    <div>Timer: <span class="timeRemaining">1:00</span></div>
+  </div>
+  <div>
+    <button class="rock">Rock</button>
+    <button class="paper">Paper</button>
+    <button class="scissors">Scissors</button>
+  </div>
+  <div>Computer Chose <span class="computerChoice">"Rock"</span></div>
+  <div class="scoreBoard">
+    <div><span>0</span> Wins</div>
+    <div><span>0</span> Losses</div>
+    <div><span>0</span> Draw</div>
+  </div>
+  <div>
+    <button>Start</button>
+    <button>Restart</button>
+  </div>
   <script type="text/javascript">
     $( document ).ready(function() {
- 
-    // Your code here.
- 
+      // Input Time
+
+      // Timer Countdown Logic
+
+      // Computer generate random result logic
+      var computerMove = function(decision) {
+        var decisionMap = ['rock', 'paper', 'scissors'];
+        var computerDecision = decisionMap[Math.floor(Math.random() * decisionMap.length)];
+
+      }
+      // Rock / Paper / Scissor Decision Logic
+      $('.rock').click(function() {
+        var decision = 'rock';
+        computerMove(decision);
+      });
+      $('.paper').click(function() {
+        var decision = 'paper';
+        computerMove(decision);
+        
+      });      
+      $('.scissors').click(function() {
+        var decision = 'scissors';
+        computerMove(decision);
+      });
+      
+
+      // Scoreboard logic
+    
+      // Restart Logic
     });
   </script>
 </body>
