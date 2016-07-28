@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>Rock Paper Scissors</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script data-main="scripts/main" src="scripts/require.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script data-main="scripts/app.js" src="scripts/require.js"></script>
 </head>
 
 <body id="home">
@@ -34,100 +33,5 @@
     <button class='startButton'>Start</button>
     <button class='restartButton'>Restart</button>
   </div>
-  <script type="text/javascript">
-    $( document ).ready(function() {
-      // Defaults
-      var setDefaults = function() {
-        $('.winScore').text(0);
-        $('.lossScore').text(0);
-        $('.drawScore').text(0);
-        // $('.minutesRemaining').text(0);
-        $('.secondsRemaining').text(0);
-      }
-      setDefaults();
-      
-
-      // Start Logic
-      $('.startButton').click(function() {
-        var secondsRemaining = $('.secondsInput').val();
-        $('.secondsRemaining').text(secondsRemaining);
-        $('.secondsInput').val('');
-        
-        // Timer Countdown Logic
-        var countdDown = setInterval(function(){
-          if (secondsRemaining > 0) {
-            secondsRemaining--;
-            $('.secondsRemaining').text(secondsRemaining);
-          } else {
-            // Declare Result
-            if (parseInt($('.winScore').text()) >= parseInt($('.drawScore').text()) && 
-                parseInt($('.winScore').text()) >= parseInt($('.lossScore').text())) {
-              alert('You win!');
-            } else if (parseInt($('.drawScore').text()) >= parseInt($('.lossScore').text())) {
-              alert('Its a draw!!');
-            } else {
-              alert('You Lose :(');
-            }
-            
-            clearInterval(countdDown);  
-          }
-        }, 1000);
-
-        // Computer generate random result logic
-        var computerMove = function(decision) {
-          var decisionMap = ['rock', 'paper', 'scissors'];
-          var computerDecision = decisionMap[Math.floor(Math.random() * decisionMap.length)];
-          // Display computer decision
-          $('.computerChoice').text(computerDecision);
-          
-          var scoreIncrement = function(scoreType) {
-            var scoreSelector = '.' + scoreType + 'Score';
-            $(scoreSelector).text(parseInt($(scoreSelector).text()) + 1);
-          }
-
-          // Scoreboard logic
-          if (decision === computerDecision) {
-            $('.drawScore').text(parseInt($('.drawScore').text()) + 1);
-          } else if (decision === 'rock') {
-            if (computerDecision === 'scissors') {
-              scoreIncrement('win');
-            } else if (computerDecision === 'paper') {
-              scoreIncrement('loss');
-            }
-          } else if (decision === 'paper') {
-            if (computerDecision === 'rock') {
-              scoreIncrement('win');
-            } else if (computerDecision === 'scissors') {
-             scoreIncrement('loss'); 
-            }
-          } else if (decision === 'scissors') {
-            if (computerDecision === 'paper') {
-              scoreIncrement('win');
-            } else if (computerDecision === 'rock') {
-              scoreIncrement('loss');
-            }          
-          }
-        }
-        // Rock / Paper / Scissor Decision Logic
-        $('.rock').click(function() {
-          computerMove('rock');
-        });
-        $('.paper').click(function() {
-          computerMove('paper');
-          
-        });      
-        $('.scissors').click(function() {
-          computerMove('scissors');
-        });
-        
-        
-      });
-    
-      // Restart Logic
-      $('.restartButton').click(function() {
-        setDefaults();
-      });
-    });
-  </script>
 </body>
 </html>
