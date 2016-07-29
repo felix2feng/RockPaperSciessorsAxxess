@@ -4,8 +4,15 @@ define(function () {
       $('.winScore').text(0);
       $('.lossScore').text(0);
       $('.drawScore').text(0);
-      // $('.minutesRemaining').text(0);
-      $('.secondsRemaining').text(0);
+      $('.minutesRemaining').text(0);
+      $('.secondsRemaining').text('00');
+    },
+
+    doubleDigitSeconds: function(seconds) {
+      if (seconds.length < 2) {
+        return '0' + seconds;
+      }
+      return seconds;
     },
 
     evaluateWinner: function(countDown) {
@@ -33,7 +40,7 @@ define(function () {
         if (computerDecision === 'scissors') {
           this.scoreIncrement('win');
         } else if (computerDecision === 'paper') {
-          this.coreIncrement('loss');
+          this.scoreIncrement('loss');
         }
       } else if (decision === 'paper') {
         if (computerDecision === 'rock') {

@@ -7,12 +7,17 @@ define(function (require) {
       
     // Action happens after user presses start button
     $('.startButton').click(function() {
+      var minutesRemaining = $('.minutesInput').val();
       var secondsRemaining = $('.secondsInput').val();
-      $('.secondsRemaining').text(secondsRemaining);
+      $('.minutesRemaining').text(minutesRemaining);
+      $('.secondsRemaining').text(utilities.doubleDigitSeconds(secondsRemaining));
+      $('.minutesInput').val('');
       $('.secondsInput').val('');
       
       // Timer Countdown Logic
       var countDown = setInterval(function(){
+        
+
         if (secondsRemaining > 0) {
           secondsRemaining--;
           $('.secondsRemaining').text(secondsRemaining);
