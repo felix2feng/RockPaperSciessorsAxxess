@@ -1,0 +1,7 @@
+.gameContainer {
+  width: 700px;
+  margin: auto;
+}
+.timeDisplay {
+  font-size: 80px;
+}

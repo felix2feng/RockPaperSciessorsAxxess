@@ -10,35 +10,33 @@
 </head>
 
 <body id="home">
-
-  <h1>Rock Paper Scissors!</h1>
-  <div class='timeContainer'>
-    <div>
-      <input type="text" class="minutesInput"><span>Minutes</span>
-      <input type="text" class="secondsInput"><span>Seconds</span>
-      <div>Timer
+  <div class='gameContainer'>
+    <div class='timeContainer'>
+      <div>
+        <input type="text" class="minutesInput"><span>Minutes</span>
+        <input type="text" class="secondsInput"><span>Seconds</span>
+      </div>
+      <div class='timeDisplay'>
         <span class="minutesRemaining"></span>:<span class="secondsRemaining"></span> 
+        <button class='startButton'>Start</button>
+        <button class='restartButton'>Restart</button>
       </div>
     </div>
-    <div>
-      <button class='startButton'>Start</button>
-      <button class='restartButton'>Restart</button>
+    <div class="scoreBoard">
+      <div><span class='winScore'></span> Wins</div>
+      <div><span class='lossScore'></span> Losses</div>
+      <div><span class='drawScore'></span> Draw</div>
     </div>
-  </div>
-  <div class="scoreBoard">
-    <div><span class='winScore'></span> Wins</div>
-    <div><span class='lossScore'></span> Losses</div>
-    <div><span class='drawScore'></span> Draw</div>
-  </div>
-  <div class='players'>
-    <div class='user'>
-      <button class="rock">Rock</button>
-      <button class="paper">Paper</button>
-      <button class="scissors">Scissors</button>
+    <div class='players'>
+      <div class='user'>
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissors">Scissors</button>
+      </div>
+      <div class='computer'>
+        <div>Computer Chose <span class="computerChoice">None</span></div>
+      </div>  
     </div>
-    <div class='computer'>
-      <div>Computer Chose <span class="computerChoice">None</span></div>
-    </div>  
   </div>
 </body>
 </html>
