@@ -1,5 +1,4 @@
 define(function (require) {
-    console.log('Mainjs getting called');
     var utilities = require('helper/util');
 
     // Reset scores and times to 0
@@ -9,7 +8,7 @@ define(function (require) {
     $('.startButton').click(function() {
       var minutesRemaining = $('.minutesInput').val();
       var secondsRemaining = $('.secondsInput').val();
-      $('.minutesRemaining').text(minutesRemaining);
+      $('.minutesRemaining').text(minutesRemaining || 0);
       $('.secondsRemaining').text(utilities.doubleDigitSeconds(secondsRemaining));
       $('.minutesInput').val('');
       $('.secondsInput').val('');
@@ -17,10 +16,14 @@ define(function (require) {
       // Timer Countdown Logic
       var countDown = setInterval(function(){
         
-
-        if (secondsRemaining > 0) {
+        if (parseInt(secondsRemaining) > 0) {
           secondsRemaining--;
-          $('.secondsRemaining').text(secondsRemaining);
+          $('.secondsRemaining').text(utilities.doubleDigitSeconds(secondsRemaining));
+        } else if (minutesRemaining > 0 && parseInt(secondsRemaining) === 0) {
+          secondsRemaining = 59;
+          minutesRemaining--;
+          $('.minutesRemaining').text(minutesRemaining);
+          $('.secondsRemaining').text(utilities.doubleDigitSeconds(secondsRemaining));
         } else {
           utilities.evaluateWinner(countDown);
         }

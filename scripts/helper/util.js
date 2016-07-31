@@ -9,7 +9,7 @@ define(function () {
     },
 
     doubleDigitSeconds: function(seconds) {
-      if (seconds.length < 2) {
+      if (seconds < 10) {
         return '0' + seconds;
       }
       return seconds;
