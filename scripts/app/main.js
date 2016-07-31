@@ -15,7 +15,10 @@ define(function (require) {
       
       // Timer Countdown Logic
       var countDown = setInterval(function(){
-        
+        if (parseInt(minutesRemaining) === 0 && parseInt(secondsRemaining) <= 10) {
+          $('.timeDisplay').addClass('lowTime');
+        }
+
         if (parseInt(secondsRemaining) > 0) {
           secondsRemaining--;
           $('.secondsRemaining').text(utilities.doubleDigitSeconds(secondsRemaining));

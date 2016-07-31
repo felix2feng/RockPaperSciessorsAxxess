@@ -24,7 +24,8 @@ define(function () {
           alert('Its a draw!!');
         } else {
           alert('You Lose :(');
-        }    
+        }
+        $('.timeDisplay').removeClass('lowTime');
         clearInterval(countDown);  
     },
 

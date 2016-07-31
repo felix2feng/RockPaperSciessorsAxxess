@@ -5,17 +5,61 @@
 .timeDisplay {
   font-size: 80px;
 }
+.lowTime {
+  color: red;
+}
+.scoreBoard {
+  width: 600px;
+  background-color: #d4d4d4;
+  display: flex;
+}
+.scoreDiv {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.scoreDivChild {
+  margin: auto;
+}
+.scoreNumber {
+  margin: auto;
+  font-size: 30px;
+}
 .user {
+  display: flex;
+  flex-direction: column;
   width: 300px;
+  height: 200px;
   float: left;
   border: 1px solid red;
 }
 .computer {
+  display: flex;
+  flex-direction: column;
   width: 300px;
+  height: 200px;
   border: 1px solid green;
+  overflow: hidden;
+}
+.computerChoice {
+  margin: auto;
+  font-size: 50px;
 }
 .decisionHeader {
   background-color: #d3d3d3;
+  text-align: center;
+}
+.userDecisionChoiceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+.userDecisionChoice {
+  text-align: center;
+  margin: auto;
+  width: 100%;
+  height: 100%;
 }
 .rock {
   background-color: green;
