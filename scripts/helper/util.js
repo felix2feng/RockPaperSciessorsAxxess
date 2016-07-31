@@ -17,10 +17,9 @@ define(function () {
 
     evaluateWinner: function(countDown) {
         // Declare Result
-        if (parseInt($('.winScore').text()) >= parseInt($('.drawScore').text()) && 
-            parseInt($('.winScore').text()) >= parseInt($('.lossScore').text())) {
+        if (parseInt($('.winScore').text()) > parseInt($('.lossScore').text())) {
           alert('You win!');
-        } else if (parseInt($('.drawScore').text()) >= parseInt($('.lossScore').text())) {
+        } else if (parseInt($('.winScore').text()) == parseInt($('.lossScore').text())) {
           alert('Its a draw!!');
         } else {
           alert('You Lose :(');
