@@ -3,17 +3,31 @@
   margin: auto;
 }
 
+.mainHeader {
+  text-align: center;
+  margin: auto;
+  width: 100%;
+  color: white;
+  background-color: #003399;  
+}
+
+.mainContainer {
+  border-color: black;
+  border-width: 1px;
+  border-style: groove;
+  margin: 10px;
+}
+
 .timeDisplay {
   font-size: 80px;
+  text-align: center;
 }
 
 .lowTime {
   color: red;
 }
 
-.scoreBoard {
-  width: 600px;
-  background-color: #d4d4d4;
+.flexContainer {
   display: flex;
 }
 
@@ -35,18 +49,18 @@
 .user {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  flex-grow: 1;
   height: 200px;
   float:left; 
-  border: 1px solid red;
+  border: 1px solid black;
 }
 
 .computer {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  flex-grow: 1;
   height: 200px;
-  border: 1px solid green;
+  border: 1px solid black;
   overflow: hidden;
 }
 

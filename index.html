@@ -12,44 +12,53 @@
 <body id="home">
   <div class='gameContainer'>
     <div class='timeContainer'>
-      <div>
-        <div>Input Desired Length of Game and Press Start to Begin</div>
-        <input type="text" class="minutesInput"><span>Minutes</span>
-        <input type="text" class="secondsInput"><span>Seconds</span>
-      </div>
-      <div class='timeDisplay'>
-        <span class="minutesRemaining"></span>:<span class="secondsRemaining"></span> 
+      <div class='mainContainer'>
+        <div class='mainHeader'>Input Time and Press Start To Begin</div>
+        <input type="text" class="minutesInput" value='0'><span>Minutes</span>
+        <input type="text" class="secondsInput" value='15'><span>Seconds</span>
         <button class='startButton'>Start</button>
         <button class='restartButton'>Restart</button>
       </div>
-    </div>
-    <div class="scoreBoard">
-      <div class='scoreDiv'>
-        <div class='scoreDivChild'>Wins</div>
-        <div class='scoreNumber winScore'></div>
-      </div>
-      <div class='scoreDiv'>
-        <div class='scoreDivChild'>Losses</div>
-        <div class='scoreNumber lossScore'></div>
-      </div>
-      <div class='scoreDiv'>
-        <div class='scoreDivChild'>Draw</div>
-        <div class='scoreNumber drawScore'></div>
-      </div>
-    </div>
-    <div class='players'>
-      <div class='user'>
-        <div class='decisionHeader'>Player Chooses</div>
-        <div class='userDecisionChoiceContainer'>
-          <div class="rock userDecisionChoice">Rock</div>
-          <div class="paper userDecisionChoice">Paper</div>
-          <div class="scissors userDecisionChoice">Scissors</div>
+      <div class='mainContainer'>
+        <div class='mainHeader'>Time Remaining</div>
+        <div class='timeDisplay'>
+          <span class="minutesRemaining"></span>:<span class="secondsRemaining"></span> 
         </div>
       </div>
-      <div class='computer'>
-        <div class='decisionHeader'>Computer Chooses</div>
-        <div class="computerChoice">None</div>
-      </div>  
+    </div>
+    <div class="mainContainer">
+      <div class='mainHeader'>Scoreboard</div>
+      <div class='flexContainer'>
+        <div class='scoreDiv'>
+          <div class='scoreDivChild'>Wins</div>
+          <div class='scoreNumber winScore'></div>
+        </div>
+        <div class='scoreDiv'>
+          <div class='scoreDivChild'>Losses</div>
+          <div class='scoreNumber lossScore'></div>
+        </div>
+        <div class='scoreDiv'>
+          <div class='scoreDivChild'>Draw</div>
+          <div class='scoreNumber drawScore'></div>
+        </div>
+      </div>
+    </div>
+    <div class='mainContainer'>
+      <div class='mainHeader'>Players</div>
+      <div class='flexContainer'>
+        <div class='user'>
+          <div class='decisionHeader'>Player Chooses</div>
+          <div class='userDecisionChoiceContainer'>
+            <div class="rock userDecisionChoice">Rock</div>
+            <div class="paper userDecisionChoice">Paper</div>
+            <div class="scissors userDecisionChoice">Scissors</div>
+          </div>
+        </div>
+        <div class='computer'>
+          <div class='decisionHeader'>Computer Chooses</div>
+          <div class="computerChoice">None</div>
+        </div>  
+      </div>
     </div>
   </div>
 </body>
