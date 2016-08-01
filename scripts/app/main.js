@@ -12,9 +12,10 @@ define(function (require) {
       $('.secondsRemaining').text(utilities.doubleDigitSeconds(secondsRemaining));
       $('.minutesInput').val('');
       $('.secondsInput').val('');
-      
+
       // Timer Countdown Logic
       var countDown = setInterval(function(){
+        
         if (parseInt(minutesRemaining) === 0 && parseInt(secondsRemaining) <= 10) {
           $('.timeDisplay').addClass('lowTime');
         }
@@ -46,7 +47,8 @@ define(function (require) {
       $('.restartButton').click(function() {
         utilities.setDefaults();
         clearInterval(countDown);
-      }); 
+      });
+      return false;
     });
   
 });
