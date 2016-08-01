@@ -72,13 +72,18 @@
   margin: auto;
   width: 100%;
   height: 100%;
+  flex-grow: 1;
+}
+.userDecisionChoice:hover {
+  cursor: pointer;
+  cursor: hand;
 }
 .rock {
-  background-color: green;
+  background-color: #900CE8;
 }
 .paper {
-  background-color: yellow;
+  background-color: #FF0000;
 }
 .scissors {
-  background-color: orange;
+  background-color: #E87B0C;
 }

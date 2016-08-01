@@ -42,10 +42,11 @@ define(function (require) {
       $('.scissors').click(function() {
         utilities.computerMove('scissors');
       });
+      // Reset scores and times to 0
+      $('.restartButton').click(function() {
+        utilities.setDefaults();
+        clearInterval(countDown);
+      }); 
     });
   
-    // Reset scores and times to 0
-    $('.restartButton').click(function() {
-      utilities.setDefaults();
-    }); 
 });
