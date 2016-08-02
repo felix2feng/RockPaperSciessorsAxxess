@@ -1,5 +1,5 @@
 # RockPaperSciessorsAxxess
-Rock Paper Scissors Game
+Rock Paper Scissors is a single page application that allows a player to play rock-paper-scissors with a computer player.
 
 ## Development Processes
 - Modular Front-End Code using Require.js
